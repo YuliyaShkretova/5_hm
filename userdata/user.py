@@ -1,7 +1,5 @@
 from dataclasses import dataclass
-from datetime import date
 from enum import Enum
-from typing import List
 
 
 class Gender(Enum):
@@ -9,26 +7,9 @@ class Gender(Enum):
     female = 'Female'
     other = 'Other'
 
-#
-# class Subject(Enum):
-#     hindi = 'Hindi'
-#     social_studies = 'Social Studies'
-
 
 @dataclass
 class User:
-    # name: str
-    # surname: str
-    # email: str
-    # gender: Gender
-    # mobile: str
-    # date_of_birth: date
-    # subject: List[Subject]
-    # hobbies: List[Hobbies]
-    # picture: str
-    # address: str
-    # state: str
-    # city: str
 
     def __init__(self, name, surname, email, gender, mobile, year, month, date, subject, hobbies, picture, address,
                  state,
