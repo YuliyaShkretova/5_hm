@@ -1,13 +1,16 @@
 from selene.support.shared import browser
 from selene import be, have, command
 
-from HW_5_5 import resources
-from UserData.user import User
+from utils import resources
+from userdata.user import User
+from tests.conftest import browser_setup
 
 
 class Registration:
+    browser = browser_setup
+
     def open(self):
-        browser.open('/automation-practice-form')
+        browser.open('https://demoqa.com/automation-practice-form')
 
     def fill_in(self, user: User):
         browser.element('[id="firstName"]').should(be.blank).type(user.name)
@@ -29,9 +32,7 @@ class Registration:
         browser.element('[id="city"]').click()
         browser.element(f'[id="react-select-4-input"]').type(user.city).press_tab()
 
-
     def submit(self):
-        # browser.element('[id="submit"]').perform(command.js.scroll_into_view)
         browser.element('[id="submit"]').press_enter()
 
     def check(self, user: User):
@@ -46,4 +47,3 @@ class Registration:
                                                         'Address' + ' ' + user.address,
                                                         f'State and City' + ' ' + user.state + ' ' + user.city))
         return self
-
