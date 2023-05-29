@@ -1,7 +1,7 @@
 from selene.support.shared import browser
 from selene import be, have, command
 
-from HW_5_5 import resources
+from resources import resources
 
 
 class Registration:

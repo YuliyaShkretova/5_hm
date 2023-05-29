@@ -1,4 +1,4 @@
-from HW_5_5.registration import Registration
+from resources.registration import Registration
 
 
 def test_form_fill_in(browser_setup):
