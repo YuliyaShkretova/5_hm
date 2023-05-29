@@ -1,7 +1,7 @@
 import allure
 from allure_commons.types import Severity
 
-from resources.registration import Registration
+from pages.registration import Registration
 from userdata.user import user
 
 
