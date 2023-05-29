@@ -1,4 +1,4 @@
-from resources.registration import Registration
+from pages.registration import Registration
 
 
 def test_form_fill_in(browser_setup):
