@@ -4,7 +4,6 @@ import dotenv
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.remote import webdriver
 from selene import Browser, Config
 from selenium.webdriver import Remote
 
@@ -45,17 +44,18 @@ def setup_browser(request):
     login = 'user1'
     password = '1234'
 
-    driver = Remote(
+    driver = webdriver.Remote(
         command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
         options=options)
 
-    browser = Browser(Config(driver))
+    # browser = Browser(Config(driver))
+    Browser.config.driver = driver
 
-    yield browser
+    yield Browser
 
-    attach.add_html(browser)
-    attach.add_screenshot(browser)
-    attach.add_logs(browser)
-    attach.add_video(browser)
-    browser.quit()
+    attach.add_html(driver)
+    attach.add_screenshot(driver)
+    attach.add_logs(driver)
+    attach.add_video(driver)
+    driver.quit()
 

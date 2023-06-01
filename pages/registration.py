@@ -2,12 +2,14 @@ from selene.support.shared import browser
 from selene import be, have, command
 
 from data.user import User
+from tests.conftest import setup_browser
 from utils import resources
 
 
 class Registration:
-    def __init__(self):
-        self.browser = browser
+    # def __init__(self):
+    #     self.browser = browser
+    browser = setup_browser
 
     def open(self):
         browser.open('https://demoqa.com/automation-practice-form')
