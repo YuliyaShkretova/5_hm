@@ -49,13 +49,13 @@ def setup_browser(request):
         options=options)
 
     # browser = Browser(Config(driver))
-    Browser.config.driver = driver
+    browser = Browser(Config(driver))
 
-    yield Browser
+    yield browser
 
-    attach.add_html(driver)
-    attach.add_screenshot(driver)
-    attach.add_logs(driver)
-    attach.add_video(driver)
+    attach.add_html(browser)
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
+    attach.add_video(browser)
     driver.quit()
 
