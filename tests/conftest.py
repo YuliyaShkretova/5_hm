@@ -39,16 +39,14 @@ def setup_browser(request):
     }
     options.capabilities.update(capabilities)
 
-    # login = os.getenv('LOGIN')
-    # password = os.getenv('PASSWORD!')
-    login = 'user1'
-    password = '1234'
+    login = os.getenv('LOGIN')
+    password = os.getenv('PASSWORD!')
+
 
     driver = webdriver.Remote(
         command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
         options=options)
 
-    # browser = Browser(Config(driver))
     browser = Browser(Config(driver))
 
     yield browser
